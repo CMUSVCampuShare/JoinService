@@ -30,7 +30,7 @@ public class JoinService {
 
         JoinNotification joinNotification = new JoinNotification(postID, passenger.getUserID(), location.getTimeIncrease());
 
-        notificationManger.notifyDriver(driver.getUserID(), joinNotification);
+        notificationManger.notifyDriver(joinNotification);
 
     }
 }
