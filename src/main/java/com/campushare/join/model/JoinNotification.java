@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class JoinNotification {
-    private Integer postID;
-    private Integer userID;
+    private String postID;
+    private String userID;
     private Integer timeAdded;
     // private MapObj addressPin;
 }

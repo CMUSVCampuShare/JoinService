@@ -14,7 +14,7 @@ public class JoinController {
 
     @PostMapping("/join")
     @ResponseBody
-    public ResponseEntity requestToJoin(@RequestParam Integer postID, @RequestBody JoinRequest joinRequest){
+    public ResponseEntity requestToJoin(@RequestParam String postID, @RequestBody JoinRequest joinRequest){
         joinService.manageJoinRequest(postID, joinRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }

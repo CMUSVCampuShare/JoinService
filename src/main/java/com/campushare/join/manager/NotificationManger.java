@@ -13,10 +13,11 @@ public class NotificationManger {
     @Autowired
     private NotifyDriverProducer notifyDriverProducer;
 
-    public void notifyDriver(JoinNotification notification) {
+    public void notifyDriver(String userID, JoinNotification notification) {
         NotifyDriverEvent notifyDriverEvent = new NotifyDriverEvent();
         notifyDriverEvent.setMessage("Notification has been created");
         notifyDriverEvent.setStatus("CREATED");
+        notifyDriverEvent.setRecipientUserID(userID);
         notifyDriverEvent.setJoinNotification(notification);
         notifyDriverProducer.sendMessage(notifyDriverEvent);
     }

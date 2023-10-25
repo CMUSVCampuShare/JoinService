@@ -22,7 +22,7 @@ public class JoinService {
     @Autowired
     private NotificationManger notificationManger;
 
-    public void manageJoinRequest(Integer postID, JoinRequest joinRequest){
+    public void manageJoinRequest(String postID, JoinRequest joinRequest){
         User driver = userManager.getUserDetails(joinRequest.getDriverID());
         User passenger = userManager.getUserDetails(joinRequest.getPassengerID());
 
@@ -30,7 +30,7 @@ public class JoinService {
 
         JoinNotification joinNotification = new JoinNotification(postID, passenger.getUserID(), location.getTimeIncrease());
 
-        notificationManger.notifyDriver(joinNotification);
+        notificationManger.notifyDriver(driver.getUserID() ,joinNotification);
 
     }
 }
