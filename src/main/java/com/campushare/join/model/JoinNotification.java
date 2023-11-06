@@ -8,6 +8,6 @@ import lombok.Data;
 public class JoinNotification {
     private String postID;
     private String userID;
-    private Integer timeAdded;
+    private Long timeAdded;
     // private MapObj addressPin;
 }
