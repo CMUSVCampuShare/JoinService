@@ -30,4 +30,14 @@ public class JoinService {
         notificationManger.notifyDriver(driver.getUserID() ,joinNotification);
 
     }
+
+    public void manageFoodOrderRequest(String postID, OrderPickupRequest orderPickupRequest){
+        OrderPickupNotification orderPickupNotification = new OrderPickupNotification(postID, orderPickupRequest.getPassengerID(), orderPickupRequest.getRestaurantOrderNumber());
+        notificationManger.notifyDriver(orderPickupRequest.getDriverID(), orderPickupNotification);
+    }
+
+    public void manageLunchCarpool(String postID, JoinRequest joinRequest){
+        LunchCarpoolNotification lunchCarpoolNotification = new LunchCarpoolNotification(postID, joinRequest.getPassengerID());
+        notificationManger.notifyDriver(joinRequest.getDriverID(), lunchCarpoolNotification);
+    }
 }

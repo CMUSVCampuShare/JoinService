@@ -13,5 +13,5 @@ public class NotifyDriverEvent {
     private String message;
     private String status;
     private String recipientUserID;
-    private JoinNotification joinNotification;
+    private Object joinNotification;
 }
