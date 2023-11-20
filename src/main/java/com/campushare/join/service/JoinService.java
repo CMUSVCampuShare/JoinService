@@ -34,19 +34,15 @@ public class JoinService {
             notificationManger.notifyDriver(driver.getUserId(), joinNotification);
         }
         else {
-            System.out.println("Driver had empty Address");
+            System.out.println("User had empty Address");
             throw new NullPointerException();
         }
 
     }
 
-    public void manageFoodOrderRequest(String postID, OrderPickupRequest orderPickupRequest){
-        OrderPickupNotification orderPickupNotification = new OrderPickupNotification(postID, orderPickupRequest.getPassengerID(), orderPickupRequest.getRestaurantOrderNumber());
-        notificationManger.notifyDriver(orderPickupRequest.getDriverID(), orderPickupNotification);
-    }
-
-    public void manageLunchCarpool(String postID, JoinRequest joinRequest){
-        LunchCarpoolNotification lunchCarpoolNotification = new LunchCarpoolNotification(postID, joinRequest.getPassengerID());
+    public void manageLunchAndFood(String postID, JoinRequest joinRequest){
+        User requester = userManager.getUserDetails(joinRequest.getPassengerID());
+        LunchCarpoolNotification lunchCarpoolNotification = new LunchCarpoolNotification(postID, requester.getUsername());
         notificationManger.notifyDriver(joinRequest.getDriverID(), lunchCarpoolNotification);
     }
 }

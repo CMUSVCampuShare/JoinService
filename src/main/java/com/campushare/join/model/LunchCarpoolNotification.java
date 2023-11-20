@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class LunchCarpoolNotification {
     private String postID;
-    private String userID;
+    private String username;
 }

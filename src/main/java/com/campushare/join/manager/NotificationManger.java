@@ -3,7 +3,6 @@ package com.campushare.join.manager;
 
 import com.campushare.join.dto.NotifyDriverEvent;
 import com.campushare.join.kafka.NotifyDriverProducer;
-import com.campushare.join.model.JoinNotification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
