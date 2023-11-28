@@ -14,17 +14,17 @@ public class JoinController {
 
     @PostMapping("/join")
     @ResponseBody
-    public ResponseEntity requestToJoin(@RequestParam String postID, @RequestBody JoinRequest joinRequest){
+    public ResponseEntity requestToJoin(@RequestParam String post, @RequestBody JoinRequest joinRequest){
         System.out.println("Ride join");
-        joinService.manageJoinRequest(postID, joinRequest);
+        joinService.manageJoinRequest(post, joinRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }
 
     @PostMapping("/request-food")
     @ResponseBody
-    public ResponseEntity requestFood(@RequestParam String postID, @RequestBody JoinRequest joinRequest){
+    public ResponseEntity requestFood(@RequestParam String post, @RequestBody JoinRequest joinRequest){
         System.out.println("Food join");
-        joinService.manageLunchAndFood(postID, joinRequest);
+        joinService.manageLunchAndFood(post, joinRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }
 }

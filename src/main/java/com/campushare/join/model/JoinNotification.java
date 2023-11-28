@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class JoinNotification {
-    private String postID;
-    private String userID;
+    private String message;
     private GeoLocationData geoLocationData;
 }

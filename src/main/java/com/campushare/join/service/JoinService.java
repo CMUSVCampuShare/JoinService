@@ -19,17 +19,15 @@ public class JoinService {
     @Autowired
     private NotificationManger notificationManger;
 
-    public void manageJoinRequest(String postID, JoinRequest joinRequest){
+    public void manageJoinRequest(String post, JoinRequest joinRequest){
         User driver = userManager.getUserDetails(joinRequest.getDriverID());
         User passenger = userManager.getUserDetails(joinRequest.getPassengerID());
-        System.out.println("Driver");
-        System.out.println(driver);
-        System.out.println("passenger");
-        System.out.println(passenger);
+
         if (driver.getAddress() != null && passenger.getAddress() != null) {
             GeoLocationData location = geoLocationManager.getGeoLocationInfo(driver, passenger);
+            String message = passenger.getUsername() + " wants to join " + post + "!";
 
-            JoinNotification joinNotification = new JoinNotification(postID, passenger.getUserId(), location);
+            JoinNotification joinNotification = new JoinNotification(message, location);
 
             notificationManger.notifyDriver(driver.getUserId(), joinNotification);
         }
@@ -40,9 +38,9 @@ public class JoinService {
 
     }
 
-    public void manageLunchAndFood(String postID, JoinRequest joinRequest){
+    public void manageLunchAndFood(String post, JoinRequest joinRequest){
         User requester = userManager.getUserDetails(joinRequest.getPassengerID());
-        LunchCarpoolNotification lunchCarpoolNotification = new LunchCarpoolNotification(postID, requester.getUsername());
-        notificationManger.notifyDriver(joinRequest.getDriverID(), lunchCarpoolNotification);
+        String message = requester.getUsername() + " wants to join " + post + "!";
+        notificationManger.notifyDriver(joinRequest.getDriverID(), message);
     }
 }

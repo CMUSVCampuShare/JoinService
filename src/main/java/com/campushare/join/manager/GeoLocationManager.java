@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class GeoLocationManager {
 
-    private final String GEO_LOCATION_ENDPOINT_URL = "http://localhost:8090/location";
+    private final String GEO_LOCATION_ENDPOINT_URL = "http://localhost:8087/location";
     public GeoLocationData getGeoLocationInfo(User driver, User passenger){
 
         String driverAddress = String.valueOf(driver.getAddress());

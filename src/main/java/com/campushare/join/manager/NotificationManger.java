@@ -14,10 +14,8 @@ public class NotificationManger {
 
     public void notifyDriver(String userID, Object notification) {
         NotifyDriverEvent notifyDriverEvent = new NotifyDriverEvent();
-        notifyDriverEvent.setMessage("Notification has been created");
-        notifyDriverEvent.setStatus("CREATED");
-        notifyDriverEvent.setRecipientUserID(userID);
-        notifyDriverEvent.setJoinNotification(notification);
+        notifyDriverEvent.setPassengerId(userID);
+        notifyDriverEvent.setMessage(notification);
         notifyDriverProducer.sendMessage(notifyDriverEvent);
     }
 }

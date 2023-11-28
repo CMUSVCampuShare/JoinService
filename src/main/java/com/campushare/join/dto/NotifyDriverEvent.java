@@ -1,6 +1,5 @@
 package com.campushare.join.dto;
 
-import com.campushare.join.model.JoinNotification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NotifyDriverEvent {
-
-    private String message;
-    private String status;
-    private String recipientUserID;
-    private Object joinNotification;
+    private String passengerId;
+    private Object message;
 }
