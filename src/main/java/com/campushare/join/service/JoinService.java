@@ -20,16 +20,15 @@ public class JoinService {
     private NotificationManger notificationManger;
 
     public void manageJoinRequest(String post, JoinRequest joinRequest){
-        User driver = userManager.getUserDetails(joinRequest.getDriverID());
         User passenger = userManager.getUserDetails(joinRequest.getPassengerID());
-
-        if (driver.getAddress() != null && passenger.getAddress() != null) {
-            GeoLocationData location = geoLocationManager.getGeoLocationInfo(driver, passenger);
+        System.out.println(passenger);
+        if (passenger.getAddress() != null) {
+            GeoLocationData location = geoLocationManager.getGeoLocationInfo(joinRequest.getFrom(), joinRequest.getTo(), String.valueOf(passenger.getAddress()));
             String message = passenger.getUsername() + " wants to join " + post + "!";
 
             JoinNotification joinNotification = new JoinNotification(message, location);
-
-            notificationManger.notifyDriver(driver.getUserId(), joinNotification);
+            System.out.println(joinNotification);
+            notificationManger.notifyDriver(joinRequest.getDriverID(), joinNotification);
         }
         else {
             System.out.println("User had empty Address");
@@ -38,9 +37,10 @@ public class JoinService {
 
     }
 
-    public void manageLunchAndFood(String post, JoinRequest joinRequest){
-        User requester = userManager.getUserDetails(joinRequest.getPassengerID());
+    public void manageLunchAndFood(String post, FoodRequest foodRequest){
+        User requester = userManager.getUserDetails(foodRequest.getPassengerID());
         String message = requester.getUsername() + " wants to join " + post + "!";
-        notificationManger.notifyDriver(joinRequest.getDriverID(), message);
+        System.out.println(message);
+        notificationManger.notifyDriver(foodRequest.getDriverID(), message);
     }
 }

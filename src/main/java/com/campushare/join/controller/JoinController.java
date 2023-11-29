@@ -1,5 +1,6 @@
 package com.campushare.join.controller;
 
+import com.campushare.join.model.FoodRequest;
 import com.campushare.join.model.JoinRequest;
 import com.campushare.join.service.JoinService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,9 @@ public class JoinController {
 
     @PostMapping("/request-food")
     @ResponseBody
-    public ResponseEntity requestFood(@RequestParam String post, @RequestBody JoinRequest joinRequest){
+    public ResponseEntity requestFood(@RequestParam String post, @RequestBody FoodRequest foodRequest){
         System.out.println("Food join");
-        joinService.manageLunchAndFood(post, joinRequest);
+        joinService.manageLunchAndFood(post, foodRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }
 }
