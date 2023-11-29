@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.campushare.join.service.JoinServiceTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-11-29T07:00:35" hostname="Aishwaryas-MacBook-Air.local" time="0.79">
+  <properties/>
+  <testcase name="manageJoinRequest_createsRequestWithGeolocationData()" classname="com.campushare.join.service.JoinServiceTests" time="0.775"/>
+  <testcase name="manageLunchAndFood_sendsFoodNotification()" classname="com.campushare.join.service.JoinServiceTests" time="0.008"/>
+  <system-out><![CDATA[User(userId=passengerId, username=null, password=null, email=null, rewardpts=null, role=null, schedule=null, address=null)
+JoinNotification(message=null wants to join mockPost!, geoLocationData=GeoLocationData(addedTime=8, pin=Coordinates(longitude=33.5, latitude=33.5)))
+username wants to join post!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

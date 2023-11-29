@@ -22,18 +22,12 @@ public class JoinService {
     public void manageJoinRequest(String post, JoinRequest joinRequest){
         User passenger = userManager.getUserDetails(joinRequest.getPassengerID());
         System.out.println(passenger);
-        if (passenger.getAddress() != null) {
-            GeoLocationData location = geoLocationManager.getGeoLocationInfo(joinRequest.getFrom(), joinRequest.getTo(), String.valueOf(passenger.getAddress()));
-            String message = passenger.getUsername() + " wants to join " + post + "!";
+        GeoLocationData location = geoLocationManager.getGeoLocationInfo(joinRequest.getFrom(), joinRequest.getTo(), String.valueOf(passenger.getAddress()));
+        String message = passenger.getUsername() + " wants to join " + post + "!";
 
-            JoinNotification joinNotification = new JoinNotification(message, location);
-            System.out.println(joinNotification);
-            notificationManger.notifyDriver(joinRequest.getDriverID(), joinNotification);
-        }
-        else {
-            System.out.println("User had empty Address");
-            throw new NullPointerException();
-        }
+        JoinNotification joinNotification = new JoinNotification(message, location);
+        System.out.println(joinNotification);
+        notificationManger.notifyDriver(joinRequest.getDriverID(), joinNotification);
 
     }
 
