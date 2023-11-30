@@ -14,17 +14,7 @@ public class User {
     private Integer rewardpts;
     private Role role;
     private Schedule schedule;
-    private Address address;
-}
-
-@Data
-@AllArgsConstructor
-class Address{
-    private String streetAddress;
-    private String aptNumber;
-    private String city;
-    private String state;
-    private String zipcode;
+    private String address;
 }
 
 class Schedule {
