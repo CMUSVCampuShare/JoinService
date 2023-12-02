@@ -32,7 +32,9 @@ public class JoinServiceTests {
     void manageJoinRequest_createsRequestWithGeolocationData() {
         User passenger = new User();
         String mockPassengerUserId = "passengerId";
+        String address = "address";
         passenger.setUserId(mockPassengerUserId);
+        passenger.setAddress(address);
 
 
         when(userManager.getUserDetails(mockPassengerUserId)).thenReturn(passenger);
