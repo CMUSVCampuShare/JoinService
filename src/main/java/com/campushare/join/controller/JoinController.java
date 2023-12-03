@@ -17,6 +17,8 @@ public class JoinController {
     @ResponseBody
     public ResponseEntity requestToJoin(@RequestParam String post, @RequestBody JoinRequest joinRequest){
         System.out.println("Ride join");
+        System.out.println(post);
+        System.out.println(joinRequest);
         joinService.manageJoinRequest(post, joinRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }
@@ -25,6 +27,8 @@ public class JoinController {
     @ResponseBody
     public ResponseEntity requestFood(@RequestParam String post, @RequestBody FoodRequest foodRequest){
         System.out.println("Food join");
+        System.out.println(post);
+        System.out.println(foodRequest);
         joinService.manageLunchAndFood(post, foodRequest);
         return ResponseEntity.ok("Driver has received your request!");
     }

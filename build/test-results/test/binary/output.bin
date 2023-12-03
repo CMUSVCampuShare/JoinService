@@ -1,0 +1,3 @@
+~User(userId=passengerId, username=null, password=null, email=null, rewardpts=null, role=null, schedule=null, address=address)
+•JoinNotification(message=null wants to join mockPost!, geoLocationData=GeoLocationData(addedTime=8, pin=Coordinates(longitude=33.5, latitude=33.5)))
+username wants to join post!

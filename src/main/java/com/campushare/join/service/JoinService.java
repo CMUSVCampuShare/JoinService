@@ -27,14 +27,27 @@ public class JoinService {
 
         JoinNotification joinNotification = new JoinNotification(message, location);
         System.out.println(joinNotification);
-        notificationManger.notifyDriver(joinRequest.getDriverID(), joinNotification);
 
+        Notification newNotification = new Notification();
+        newNotification.setNotificationBody(joinNotification);
+        newNotification.setPostId(joinRequest.getPostId());
+        newNotification.setPassengerID(joinRequest.getPassengerID());
+        newNotification.setPostTitle(post);
+
+        notificationManger.notifyDriver(joinRequest.getDriverID(), newNotification);
     }
 
     public void manageLunchAndFood(String post, FoodRequest foodRequest){
         User requester = userManager.getUserDetails(foodRequest.getPassengerID());
         String message = requester.getUsername() + " wants to join " + post + "!";
         System.out.println(message);
-        notificationManger.notifyDriver(foodRequest.getDriverID(), message);
+
+        Notification newNotification = new Notification();
+        newNotification.setNotificationBody(message);
+        newNotification.setPostId(foodRequest.getPostId());
+        newNotification.setPostTitle(post);
+        newNotification.setPassengerID(foodRequest.getPassengerID());
+
+        notificationManger.notifyDriver(foodRequest.getDriverID(), newNotification);
     }
 }

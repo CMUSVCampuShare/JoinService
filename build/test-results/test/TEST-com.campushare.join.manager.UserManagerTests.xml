@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.campushare.join.manager.UserManagerTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-02T17:58:37" hostname="Aishwaryas-MacBook-Air.local" time="1.427">
-  <properties/>
-  <testcase name="getUserDetails_getsUser()" classname="com.campushare.join.manager.UserManagerTests" time="1.427"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

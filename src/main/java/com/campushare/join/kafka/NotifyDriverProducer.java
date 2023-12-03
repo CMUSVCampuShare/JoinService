@@ -22,7 +22,7 @@ public class NotifyDriverProducer {
 
     public void sendMessage(NotifyDriverEvent event) {
         LOGGER.info(String.format("Notify Driver Event => %s", event.toString()));
-
+        System.out.println(event.toString());
         Message<NotifyDriverEvent> message = MessageBuilder
                 .withPayload(event)
                 .setHeader(KafkaHeaders.TOPIC, topic.name())

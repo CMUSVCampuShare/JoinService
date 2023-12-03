@@ -86,11 +86,16 @@ public class JoinServiceTests {
         mockFoodRequest.setDriverID(driverId);
         mockFoodRequest.setPassengerID(mockPassengerUserId);
 
-        doNothing().when(notificationManger).notifyDriver(driverId, expectedMessage);
+        Notification notification = new Notification();
+        notification.setNotificationBody(expectedMessage);
+        notification.setPassengerID(mockPassengerUserId);
+        notification.setPostTitle(mockPost);
+
+        doNothing().when(notificationManger).notifyDriver(driverId, notification);
 
         joinService.manageLunchAndFood(mockPost, mockFoodRequest);
 
         verify(userManager, times(1)).getUserDetails(mockPassengerUserId);
-        verify(notificationManger, times(1)).notifyDriver(driverId, expectedMessage);
+        verify(notificationManger, times(1)).notifyDriver(driverId, notification);
     }
 }

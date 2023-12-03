@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class UserManager {
     @Autowired
     private RestTemplate restTemplate;
-    private final String USER_ENDPOINT_URL = "http://localhost:8091/users/";
+    private final String USER_ENDPOINT_URL = "http://localhost:8081/users/";
     public User getUserDetails(String userID){
         String url = String.format("%s%s", USER_ENDPOINT_URL, userID);
         User user = restTemplate.getForObject(url, User.class);
